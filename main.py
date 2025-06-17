@@ -28,10 +28,8 @@ def start(message):
 
     bot.send_message(
         message.chat.id,
-        "➡️ පහල *Forward* button එක click කර Telegram Group 2 කට මෙය share කරන්න.\n\n"
-        "📸 පසුව *Done* click කරලා Group දෙකට Share කරපු Massage එකෙ Screenshot 02 එවන්න.\n\n"
-        "⚠️*NOTE* - Group *දෙකටම* Share කරපු *Screenshots* එවීම අනිවාර්යයි!⚠️\n\n"
-        "⚠️එකම Group එකකට දෙවරක් Share නොකරන්න!",
+        "➡️ පහල *Forward* button එක click කර Telegram Group 1 කට මෙය share කරන්න.\n\n"
+        "📸 පසුව *Done* click කරලා Group දෙකට Share කරපු Massage එකෙ Screenshot එකක් එවන්න.\n\n",
         reply_markup=keyboard,
         parse_mode="Markdown"
     )
@@ -41,7 +39,7 @@ def start(message):
 def done_button(call):
     bot.send_message(
         call.message.chat.id,
-        "📸 Screenshot දෙක එවන්න bro, group දෙකකකට share කරාද කියලා බලන්න!",
+        "📸 Screenshot එක එවන්න bro, group එකකට share කරාද කියලා බලන්න!",
         parse_mode="Markdown"
     )
 
@@ -91,6 +89,9 @@ def unlock_video_command(message):
 
     except Exception as e:
         bot.send_message(message.chat.id, f"❌ Error: `{str(e)}`", parse_mode="Markdown")
+        
+from keep_alive import keep_alive
+keep_alive()
 
 # Start bot
 bot.polling()
